@@ -1,0 +1,27 @@
+<resources>
+    <dimen name="welcome_txt_size">16sp</dimen>
+    <dimen name="welcome_txt_side_margin">16dp</dimen>
+
+    <dimen name="materialedittext_size">12sp</dimen>
+    <dimen name="materialedittext_side_margin">32dp</dimen>
+    <dimen name="materialedittext_height">48dp</dimen>
+
+    <dimen name="go_btn_side_margin">8dp</dimen>
+
+    <dimen name="txtpercent_margin_left">16dp</dimen>
+    <dimen name="txtpercent_margin_top">24dp</dimen>
+    <dimen name="txtpercent_padding">4dp</dimen>
+
+    <dimen name="progresspar_margin">32dp</dimen>
+
+    <dimen name="rv_container_height">280dp</dimen>
+    <dimen name="rv_container_side_margin">16dp</dimen>
+    <dimen name="rv_container_margin_bottom">4dp</dimen>
+    <dimen name="rv_container_margin_top">4dp</dimen>
+
+    <dimen name="typewrit_text_size">12sp</dimen>
+    <dimen name="typewrit_text_margin">4dp</dimen>
+
+    <dimen name="chronometer_padding">4sp</dimen>
+    <dimen name="chronometer_margin">4dp</dimen>
+</resources>

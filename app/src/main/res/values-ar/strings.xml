@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">TGS</string>
+    <string name="welcome_txt">مرحبا بكم في مجموعات تيليجرام السريه</string>
+    <string name="add_link">انطلق!</string>
+    <string name="place_link">ضع الرابط هنا!</string>
+<!--
+    <string name="warning_url">من فضلك يرجى التأكد ان الرابط يبدأ ب</string>
+-->
+
+    <string name="dialog_title">غلق التطبيق</string>
+    <string name="dialog_message">تحذير إذا تم إغلاق التطبيق ستحتاج الي اعادة محاولة الاتصال مره اخرى</string>
+    <string name="exit_dialog">اغلاق</string>
+
+    <string name="toast_add_link">من فضلك ضع الرابط</string>
+    <string name="toast_add_full_link">من فضلك ضع الرابط كاملا</string>
+    <string name="reconnect">اعادة المحاوله</string>
+
+    <string name="loadingbtn">جارى الاتصال</string>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -1- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text1">We are working to connect Telegram servers </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -2- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text2">We found Telegram server 73.14.52.144 </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -3- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text3">Connection successfully completed </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -4- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text4">Make new server </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -5- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text5">New server was made </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -6- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text6">Reconnect your group…..</string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -7- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text7">Connected </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -8- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text8">We are working to make the code DON’T CLOSE THE APP </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -9- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text9">We still working! </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -10- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text10">Your group is secure now! </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -11- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text11">Contact us on admin@tgs.sec </string>
+
+    <string name="loading">…..</string>
+    <string name="loading2">….</string>
+
+</resources>

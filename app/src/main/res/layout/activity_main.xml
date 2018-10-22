@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/welcome_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/welcome_txt_side_margin"
+                android:text="@string/welcome_txt"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/welcome_txt_size"
+                android:textStyle="bold" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/edit_add_link"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/materialedittext_height"
+                android:layout_below="@+id/welcome_txt"
+                android:layout_marginLeft="@dimen/materialedittext_side_margin"
+                android:layout_marginRight="@dimen/materialedittext_side_margin"
+                android:background="@drawable/black_border"
+                android:gravity="center"
+                android:hint="@string/place_link"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="@dimen/materialedittext_size"
+                app:met_baseColor="@color/Black"
+                app:met_floatingLabel="highlight"
+                app:met_minBottomTextLines="@color/color_graylt"
+                app:met_primaryColor="@color/blue_light"
+                app:met_underlineColor="@color/colorPrimaryDark" />
+
+            <Button
+                android:id="@+id/btn_add_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_add_link"
+                android:layout_margin="@dimen/go_btn_side_margin"
+                android:layout_centerInParent="true"
+                android:background="@drawable/light_blue_back"
+                android:text="@string/add_link" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_add_link"
+                android:layout_marginLeft="@dimen/txtpercent_margin_left"
+                android:layout_marginTop="@dimen/txtpercent_margin_top"
+                android:padding="@dimen/txtpercent_padding"
+                android:textColor="@color/colorPrimaryDark"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/pb"
+                style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_add_link"
+                android:layout_marginLeft="@dimen/progresspar_margin"
+                android:layout_marginRight="@dimen/progresspar_margin"
+                android:visibility="gone" />
+
+            <RelativeLayout
+
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/rv_container_height"
+                android:layout_below="@+id/pb"
+                android:layout_marginLeft="@dimen/rv_container_side_margin"
+                android:layout_marginRight="@dimen/rv_container_side_margin"
+                android:layout_marginTop="@dimen/rv_container_margin_top"
+                android:layout_marginBottom="@dimen/rv_container_margin_bottom"
+                android:background="@color/Black"
+                android:fillViewport="true"
+                android:scrollbars="horizontal">
+
+
+                <com.tgs.hamoud.tgs.util.TypewriterView
+                    android:id="@+id/typing_txt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/typewrit_text_margin"
+                    android:layout_marginRight="@dimen/typewrit_text_margin"
+                    android:text="@string/text1"
+                    android:textColor="@color/text_toshow_color"
+                    android:textSize="@dimen/typewrit_text_size" />
+                <!--  <com.tgs.hamoud.tgs.util.TypewriterView
+                      android:id="@+id/typing_txt2"
+                      android:layout_width="wrap_content"
+                      android:layout_below="@+id/typing_txt1"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="@dimen/scroll_text_side_margin"
+                      android:layout_marginRight="@dimen/scroll_text_side_margin"
+                      android:text="@string/text2"
+                      android:textColor="@color/text_toshow_color"
+                      android:textSize="@dimen/scroll_text_size" />
+                  <com.tgs.hamoud.tgs.util.TypewriterView
+                      android:id="@+id/typing_txt3"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/typing_txt2"
+                      android:layout_marginLeft="@dimen/scroll_text_side_margin"
+                      android:layout_marginRight="@dimen/scroll_text_side_margin"
+                      android:text="@string/text3"
+                      android:textColor="@color/text_toshow_color"
+                      android:textSize="@dimen/scroll_text_size" />
+                  <com.tgs.hamoud.tgs.util.TypewriterView
+                      android:id="@+id/typing_txt4"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/typing_txt3"
+                      android:layout_marginLeft="@dimen/scroll_text_side_margin"
+                      android:layout_marginRight="@dimen/scroll_text_side_margin"
+                      android:text="@string/text4"
+                      android:textColor="@color/text_toshow_color"
+                      android:textSize="@dimen/scroll_text_size" />
+                  <com.tgs.hamoud.tgs.util.TypewriterView
+                      android:id="@+id/typing_txt5"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/typing_txt4"
+                      android:layout_marginLeft="@dimen/scroll_text_side_margin"
+                      android:layout_marginRight="@dimen/scroll_text_side_margin"
+                      android:text="@string/text5"
+                      android:textColor="@color/text_toshow_color"
+                      android:textSize="@dimen/scroll_text_size" />
+                  <com.tgs.hamoud.tgs.util.TypewriterView
+                      android:id="@+id/typing_txt6"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/typing_txt5"
+                      android:layout_marginLeft="@dimen/scroll_text_side_margin"
+                      android:layout_marginRight="@dimen/scroll_text_side_margin"
+                      android:text="@string/text6"
+                      android:textColor="@color/text_toshow_color"
+                      android:textSize="@dimen/scroll_text_size" />
+                  <com.tgs.hamoud.tgs.util.TypewriterView
+                      android:id="@+id/typing_txt7"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/typing_txt6"
+                      android:layout_marginLeft="@dimen/scroll_text_side_margin"
+                      android:layout_marginRight="@dimen/scroll_text_side_margin"
+                      android:text="@string/text7"
+                      android:textColor="@color/text_toshow_color"
+                      android:textSize="@dimen/scroll_text_size" />
+                  <com.tgs.hamoud.tgs.util.TypewriterView
+                      android:id="@+id/typing_txt8"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/typing_txt7"
+                      android:layout_marginLeft="@dimen/scroll_text_side_margin"
+                      android:layout_marginRight="@dimen/scroll_text_side_margin"
+                      android:text="@string/text8"
+                      android:textColor="@color/text_toshow_color"
+                      android:textSize="@dimen/scroll_text_size" />
+                  <com.tgs.hamoud.tgs.util.TypewriterView
+                      android:id="@+id/typing_txt9"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/typing_txt8"
+                      android:layout_marginLeft="@dimen/scroll_text_side_margin"
+                      android:layout_marginRight="@dimen/scroll_text_side_margin"
+                      android:text="@string/text9"
+                      android:textColor="@color/text_toshow_color"
+                      android:textSize="@dimen/scroll_text_size" />
+                  <com.tgs.hamoud.tgs.util.TypewriterView
+                      android:id="@+id/typing_txt10"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/typing_txt9"
+                      android:layout_marginLeft="@dimen/scroll_text_side_margin"
+                      android:layout_marginRight="@dimen/scroll_text_side_margin"
+                      android:text="@string/text10"
+                      android:textColor="@color/text_toshow_color"
+                      android:textSize="@dimen/scroll_text_size" />
+                  <com.tgs.hamoud.tgs.util.TypewriterView
+                      android:id="@+id/typing_txt11"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/typing_txt10"
+                      android:layout_marginLeft="@dimen/scroll_text_side_margin"
+                      android:layout_marginRight="@dimen/scroll_text_side_margin"
+                      android:text="@string/text11"
+                      android:textColor="@color/text_toshow_color"
+                      android:textSize="@dimen/scroll_text_size" />
+  -->
+            </RelativeLayout>
+
+            <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/chronometer_margin"
+                android:layout_marginBottom="@dimen/chronometer_margin"
+                android:background="@drawable/orang_border"
+                android:padding="@dimen/chronometer_padding"
+                android:textColor="@color/Black" />
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">TGS</string>
+    <string name="welcome_txt">Welcome to telegram groups security</string>
+    <string name="add_link">GO!</string>
+    <string name="place_link">Place a link here!</string>
+<!--
+    <string name="warning_url">Please make sure that your link begin with</string>
+-->
+
+    <string name="dialog_title">Exit the application</string>
+    <string name="dialog_message">Warning If the application is closed you will need to retry the connection again</string>
+    <string name="exit_dialog">Exit</string>
+
+    <string name="toast_add_link">please add your link</string>
+    <string name="toast_add_full_link">please add your full link</string>
+    <string name="reconnect">Reconnect</string>
+    <string name="loadingbtn">loading</string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -1- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text1">We are working to connect Telegram servers </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -2- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text2">We found Telegram server 73.14.52.144 </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -3- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text3">Connection successfully completed </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -4- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text4">Make new server </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -5- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text5">New server was made </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -6- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text6">Reconnect your group…..</string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -7- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text7">Connected </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -8- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text8">We are working to make the code DON’T CLOSE THE APP </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -9- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text9">We still working! </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -10- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text10">Your group is secure now! </string>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - -11- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <string name="text11">Contact us on admin@tgs.sec </string>
+
+    <string name="loading">…..</string>
+    <string name="loading2">….</string>
+
+
+    <!--<string name="fulltext">
+We are working to connect Telegram servers…… 	40	sec - - - - -1
+We found Telegram server 73.14.52.144	15	sec - - - - - - - - -2
+Connection successfully completed	20	sec - - - - - - - - - - -3
+Make new server……	240	sec - - - - - - - - - -             - - -4
+New server was made…..	25	sec - - - - - - - - - - - - - - - - -5
+Reconnect your group….. 	380	sec - - - - - -     - - - - - - -6
+Connected….	20	sec - - - - - - - - - - - - - - - - - - - - - - -7
+We are working to make the code DON’T CLOSE THE APP	360	sec - - -8
+We still working!	50	sec - - - - - - - - - - - - - - - - - - -9
+Your group is secure now!	25	sec - - - - - - - - - - -  - - -10
+Contact us on admin@tgs.sec	10	sec - - - - - - - - - - - -  - -11
+
+</string>-->
+</resources>
