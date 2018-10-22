@@ -371,6 +371,77 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public void showDialog() {
+        AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(this);
+        }
+        builder.setTitle(R.string.dialog_title)
+                .setMessage(R.string.dialog_message)
+                .setPositiveButton(R.string.exit_dialog, (dialog, which) -> finish())
+                .setNegativeButton(android.R.string.no, (dialog, which) -> {
+                    // do nothing
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert
+                )
+                .show();
+
+    }
+
+
+    public void clearAll() {
+        mTypewriterView1.setEnabled(false);
+       /* mTypewriterView2.setEnabled(false);
+        mTypewriterView3.setEnabled(false);
+        mTypewriterView4.setEnabled(false);
+        mTypewriterView5.setEnabled(false);
+        mTypewriterView6.setEnabled(false);
+        mTypewriterView7.setEnabled(false);
+        mTypewriterView8.setEnabled(false);
+        mTypewriterView9.setEnabled(false);
+        mTypewriterView10.setEnabled(false);
+        mTypewriterView11.setEnabled(false);
+*/
+        mTypewriterView1.setText("");
+      /*  mTypewriterView2.setText("");
+        mTypewriterView3.setText("");
+        mTypewriterView4.setText("");
+        mTypewriterView5.setText("");
+        mTypewriterView6.setText("");
+        mTypewriterView7.setText("");
+        mTypewriterView8.setText("");
+        mTypewriterView9.setText("");
+        mTypewriterView10.setText("");
+        mTypewriterView11.setText("");*/
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void setProgress() {
+        new Thread(() -> {
+            while (progressStatus < 100) {
+                // Update the progress status
+                progressStatus += 1;
+
+                // Try to sleep the thread for 20 milliseconds
+                try {
+                    Thread.sleep(13000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                // Update the progress bar
+                handler.post(() -> {
+                    mProgressBar.setProgress(progressStatus);
+                    // Show the progress on TextView
+                    mProgresstxt.setText(progressStatus + Contract.PERCENT);
+                });
+            }
+        }).start(); // Start the operation
+    }
+
+
    /* private void addText2() {
 
         mTypewriterView2
@@ -760,74 +831,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //TODO ------------------------------------------------//
 
 
-    public void showDialog() {
-        AlertDialog.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
-        } else {
-            builder = new AlertDialog.Builder(this);
-        }
-        builder.setTitle(R.string.dialog_title)
-                .setMessage(R.string.dialog_message)
-                .setPositiveButton(R.string.exit_dialog, (dialog, which) -> finish())
-                .setNegativeButton(android.R.string.no, (dialog, which) -> {
-                    // do nothing
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert
-                )
-                .show();
-
-    }
-
-
-    public void clearAll() {
-        mTypewriterView1.setEnabled(false);
-       /* mTypewriterView2.setEnabled(false);
-        mTypewriterView3.setEnabled(false);
-        mTypewriterView4.setEnabled(false);
-        mTypewriterView5.setEnabled(false);
-        mTypewriterView6.setEnabled(false);
-        mTypewriterView7.setEnabled(false);
-        mTypewriterView8.setEnabled(false);
-        mTypewriterView9.setEnabled(false);
-        mTypewriterView10.setEnabled(false);
-        mTypewriterView11.setEnabled(false);
-*/
-        mTypewriterView1.setText("");
-      /*  mTypewriterView2.setText("");
-        mTypewriterView3.setText("");
-        mTypewriterView4.setText("");
-        mTypewriterView5.setText("");
-        mTypewriterView6.setText("");
-        mTypewriterView7.setText("");
-        mTypewriterView8.setText("");
-        mTypewriterView9.setText("");
-        mTypewriterView10.setText("");
-        mTypewriterView11.setText("");*/
-    }
-
-    @SuppressLint("SetTextI18n")
-    private void setProgress() {
-        new Thread(() -> {
-            while (progressStatus < 100) {
-                // Update the progress status
-                progressStatus += 1;
-
-                // Try to sleep the thread for 20 milliseconds
-                try {
-                    Thread.sleep(13000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                // Update the progress bar
-                handler.post(() -> {
-                    mProgressBar.setProgress(progressStatus);
-                    // Show the progress on TextView
-                    mProgresstxt.setText(progressStatus + Contract.PERCENT);
-                });
-            }
-        }).start(); // Start the operation
-    }
 
 }
