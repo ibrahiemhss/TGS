@@ -6,7 +6,7 @@ import android.provider.BaseColumns;
  */
 public class Contract implements BaseColumns {
     //extra strings saved in bundle
-    public static final String PART_OF_URL="https://t.me/joinchat/";
-    public static final String PERCENT="%";
+    public static final String PART_OF_URL = "https://t.me/joinchat/";
+    public static final String PERCENT = "%";
 
 }

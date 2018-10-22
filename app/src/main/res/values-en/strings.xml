@@ -3,9 +3,9 @@
     <string name="welcome_txt">Welcome to telegram groups security</string>
     <string name="add_link">GO!</string>
     <string name="place_link">Place a link here!</string>
-<!--
-    <string name="warning_url">Please make sure that your link begin with</string>
--->
+    <!--
+        <string name="warning_url">Please make sure that your link begin with</string>
+    -->
 
     <string name="dialog_title">Exit the application</string>
     <string name="dialog_message">Warning If the application is closed you will need to retry the connection again</string>

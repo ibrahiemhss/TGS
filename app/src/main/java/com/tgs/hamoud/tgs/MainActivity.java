@@ -39,26 +39,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected Button mAddBtn;
     @BindView(R.id.typing_txt1)
     protected TypewriterView mTypewriterView1;
-   /* @BindView(R.id.typing_txt2)
-    protected TypewriterView mTypewriterView2;
-    @BindView(R.id.typing_txt3)
-    protected TypewriterView mTypewriterView3;
-    @BindView(R.id.typing_txt4)
-    protected TypewriterView mTypewriterView4;
-    @BindView(R.id.typing_txt5)
-    protected TypewriterView mTypewriterView5;
-    @BindView(R.id.typing_txt6)
-    protected TypewriterView mTypewriterView6;
-    @BindView(R.id.typing_txt7)
-    protected TypewriterView mTypewriterView7;
-    @BindView(R.id.typing_txt8)
-    protected TypewriterView mTypewriterView8;
-    @BindView(R.id.typing_txt9)
-    protected TypewriterView mTypewriterView9;
-    @BindView(R.id.typing_txt10)
-    protected TypewriterView mTypewriterView10;
-    @BindView(R.id.typing_txt11)
-    protected TypewriterView mTypewriterView11;*/
+    /* @BindView(R.id.typing_txt2)
+     protected TypewriterView mTypewriterView2;
+     @BindView(R.id.typing_txt3)
+     protected TypewriterView mTypewriterView3;
+     @BindView(R.id.typing_txt4)
+     protected TypewriterView mTypewriterView4;
+     @BindView(R.id.typing_txt5)
+     protected TypewriterView mTypewriterView5;
+     @BindView(R.id.typing_txt6)
+     protected TypewriterView mTypewriterView6;
+     @BindView(R.id.typing_txt7)
+     protected TypewriterView mTypewriterView7;
+     @BindView(R.id.typing_txt8)
+     protected TypewriterView mTypewriterView8;
+     @BindView(R.id.typing_txt9)
+     protected TypewriterView mTypewriterView9;
+     @BindView(R.id.typing_txt10)
+     protected TypewriterView mTypewriterView10;
+     @BindView(R.id.typing_txt11)
+     protected TypewriterView mTypewriterView11;*/
     @BindView(R.id.pb)
     protected ProgressBar mProgressBar;
     @BindView(R.id.tv)
@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final Handler handler = new Handler();
 
 
-
     @SuppressLint({"SetTextI18n", "ResourceType"})
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ButterKnife.bind(this);
 
-        Toolbar toolbar =findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
 
@@ -92,8 +91,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mChronometer.setBase(SystemClock.elapsedRealtime());
 
-      clearAll();
-        Log.d("valueOfClick",String.valueOf(isClicked));
+        clearAll();
+        Log.d("valueOfClick", String.valueOf(isClicked));
 
         mAddBtn.setOnClickListener(this);
         mProgresstxt.setText(progressStatus + Contract.PERCENT);
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void addEditText() {
 
-        if(mMaterialEditText.getText()!=null){
+        if (mMaterialEditText.getText() != null) {
             mMaterialEditText.setText(mMaterialEditText.getText());
             Selection.setSelection(mMaterialEditText.getText(), mMaterialEditText.getText().length());
         }
@@ -124,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(!s.toString().contains(Contract.PART_OF_URL)){
+                if (!s.toString().contains(Contract.PART_OF_URL)) {
                     mMaterialEditText.setText(Contract.PART_OF_URL);
                     Selection.setSelection(mMaterialEditText.getText(), mMaterialEditText.getText().length());
 
@@ -140,16 +139,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = view.getId();
         switch (id) {
             case R.id.btn_add_link:
-                String mText= Objects.requireNonNull(mMaterialEditText.getText()).toString();
-                int length=Contract.PART_OF_URL.length();
+                String mText = Objects.requireNonNull(mMaterialEditText.getText()).toString();
+                int length = Contract.PART_OF_URL.length();
                 //noinspection EqualsBetweenInconvertibleTypes
-                if(mMaterialEditText.getText().equals("")||!mText.contains(Contract.PART_OF_URL)){
-                    Toast.makeText(MainActivity.this, R.string.toast_add_link,Toast.LENGTH_LONG).show();
-                }else if(length==mText.length()){
-                    Toast.makeText(MainActivity.this, R.string.toast_add_full_link,Toast.LENGTH_LONG).show();
+                if (mMaterialEditText.getText().equals("") || !mText.contains(Contract.PART_OF_URL)) {
+                    Toast.makeText(MainActivity.this, R.string.toast_add_link, Toast.LENGTH_LONG).show();
+                } else if (length == mText.length()) {
+                    Toast.makeText(MainActivity.this, R.string.toast_add_full_link, Toast.LENGTH_LONG).show();
 
-                }
-                    else{
+                } else {
                     addText1();
                     break;
                 }
@@ -171,183 +169,181 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mAddBtn.setClickable(false);
             mMaterialEditText.setEnabled(false);
             mAddBtn.setBackground(getResources().getDrawable(R.drawable.gray_light_back));
-            isClicked=true;
+            isClicked = true;
             mChronometer.setBase(SystemClock.elapsedRealtime());
-            Log.d("valueOfClick1",String.valueOf(isClicked));
+            Log.d("valueOfClick1", String.valueOf(isClicked));
 
             mChronometer.start();
             mTypewriterView1
                     .type(getResources().getString(R.string.text1)).pause()
-                    .delete(getResources().getString(R.string.loading),2000).pause()
-                    .type(getResources().getString(R.string.loading),2000).pause()
-                    .delete(getResources().getString(R.string.loading),2000).pause()
-                    .type(getResources().getString(R.string.loading),2000).pause()
-                    .delete(getResources().getString(R.string.loading),2000).pause()
-                    .type(getResources().getString(R.string.loading)+"\n",1000).pause()
+                    .delete(getResources().getString(R.string.loading), 2000).pause()
+                    .type(getResources().getString(R.string.loading), 2000).pause()
+                    .delete(getResources().getString(R.string.loading), 2000).pause()
+                    .type(getResources().getString(R.string.loading), 2000).pause()
+                    .delete(getResources().getString(R.string.loading), 2000).pause()
+                    .type(getResources().getString(R.string.loading) + "\n", 1000).pause()
 
                     .type(getResources().getString(R.string.text2)).pause()
-                    .delete(getResources().getString(R.string.loading),500).pause()
-                    .type(getResources().getString(R.string.loading),500).pause()
-                    .delete(getResources().getString(R.string.loading),500).pause()
-                    .type(getResources().getString(R.string.loading),500).pause()
-                    .delete(getResources().getString(R.string.loading),300).pause()
-                    .type(getResources().getString(R.string.loading),300).pause()
-                    .delete(getResources().getString(R.string.loading),200).pause()
-                    .type(getResources().getString(R.string.loading),200).pause()
-                    .delete(getResources().getString(R.string.loading),200).pause()
-                    .type(getResources().getString(R.string.loading)+"\n",200).pause()
+                    .delete(getResources().getString(R.string.loading), 500).pause()
+                    .type(getResources().getString(R.string.loading), 500).pause()
+                    .delete(getResources().getString(R.string.loading), 500).pause()
+                    .type(getResources().getString(R.string.loading), 500).pause()
+                    .delete(getResources().getString(R.string.loading), 300).pause()
+                    .type(getResources().getString(R.string.loading), 300).pause()
+                    .delete(getResources().getString(R.string.loading), 200).pause()
+                    .type(getResources().getString(R.string.loading), 200).pause()
+                    .delete(getResources().getString(R.string.loading), 200).pause()
+                    .type(getResources().getString(R.string.loading) + "\n", 200).pause()
 
                     .type(getResources().getString(R.string.text3)).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading)+"\n",1000).pause()
-
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading) + "\n", 1000).pause()
 
 
                     .type(getResources().getString(R.string.text4)).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading)+"\n",4000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading) + "\n", 4000).pause()
 
                     .type(getResources().getString(R.string.text5)).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),800).pause()
-                    .type(getResources().getString(R.string.loading),800).pause()
-                    .delete(getResources().getString(R.string.loading),800).pause()
-                    .type(getResources().getString(R.string.loading)+"\n",800).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 800).pause()
+                    .type(getResources().getString(R.string.loading), 800).pause()
+                    .delete(getResources().getString(R.string.loading), 800).pause()
+                    .type(getResources().getString(R.string.loading) + "\n", 800).pause()
 
 
                     .type(getResources().getString(R.string.text6)).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading),4000).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),800).pause()
-                    .type(getResources().getString(R.string.loading)+"\n",800).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 4000).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 800).pause()
+                    .type(getResources().getString(R.string.loading) + "\n", 800).pause()
 
 
                     .type(getResources().getString(R.string.text7)).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),800).pause()
-                    .type(getResources().getString(R.string.loading)+"\n",800).pause()
-
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 800).pause()
+                    .type(getResources().getString(R.string.loading) + "\n", 800).pause()
 
 
                     .type(getResources().getString(R.string.text8)).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading2),5000).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading2),5000).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading2),5000).pause()
-                    .delete(getResources().getString(R.string.loading),5000).pause()
-                    .type(getResources().getString(R.string.loading2),5000).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading),5000).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading2),5000).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading2),5000).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading2),5000).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading2),5000).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading2),5000).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading2),5000).pause()
-                    .delete(getResources().getString(R.string.loading2),5000).pause()
-                    .type(getResources().getString(R.string.loading2)+"\n",4000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading2), 5000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading2), 5000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading2), 5000).pause()
+                    .delete(getResources().getString(R.string.loading), 5000).pause()
+                    .type(getResources().getString(R.string.loading2), 5000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading), 5000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading2), 5000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading2), 5000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading2), 5000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading2), 5000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading2), 5000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading2), 5000).pause()
+                    .delete(getResources().getString(R.string.loading2), 5000).pause()
+                    .type(getResources().getString(R.string.loading2) + "\n", 4000).pause()
 
 
                     .type(getResources().getString(R.string.text9)).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),800).pause()
-                    .type(getResources().getString(R.string.loading),800).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),800).pause()
-                    .type(getResources().getString(R.string.loading),800).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),600).pause()
-                    .type(getResources().getString(R.string.loading),600).pause()
-                    .delete(getResources().getString(R.string.loading),600).pause()
-                    .type(getResources().getString(R.string.loading)+"\n",600).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 800).pause()
+                    .type(getResources().getString(R.string.loading), 800).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 800).pause()
+                    .type(getResources().getString(R.string.loading), 800).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 600).pause()
+                    .type(getResources().getString(R.string.loading), 600).pause()
+                    .delete(getResources().getString(R.string.loading), 600).pause()
+                    .type(getResources().getString(R.string.loading) + "\n", 600).pause()
 
                     .type(getResources().getString(R.string.text10)).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),1000).pause()
-                    .type(getResources().getString(R.string.loading),1000).pause()
-                    .delete(getResources().getString(R.string.loading),600).pause()
-                    .type(getResources().getString(R.string.loading),400).pause()
-                    .delete(getResources().getString(R.string.loading),400).pause()
-                    .type(getResources().getString(R.string.loading),400).pause()
-                    .delete(getResources().getString(R.string.loading),400).pause()
-                    .type(getResources().getString(R.string.loading)+"\n",400).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 1000).pause()
+                    .type(getResources().getString(R.string.loading), 1000).pause()
+                    .delete(getResources().getString(R.string.loading), 600).pause()
+                    .type(getResources().getString(R.string.loading), 400).pause()
+                    .delete(getResources().getString(R.string.loading), 400).pause()
+                    .type(getResources().getString(R.string.loading), 400).pause()
+                    .delete(getResources().getString(R.string.loading), 400).pause()
+                    .type(getResources().getString(R.string.loading) + "\n", 400).pause()
 
 
                     .type(getResources().getString(R.string.text11)).pause()
-                    .delete(getResources().getString(R.string.loading),500).pause()
-                    .type(getResources().getString(R.string.loading),500).pause()
-                    .delete(getResources().getString(R.string.loading),300).pause()
-                    .type(getResources().getString(R.string.loading),300).pause()
-                    .delete(getResources().getString(R.string.loading),200).pause()
-                    .type(getResources().getString(R.string.loading),200).pause()
-                    .delete(getResources().getString(R.string.loading),200).pause()
-                    .type(getResources().getString(R.string.loading)+"\n",200).pause()
+                    .delete(getResources().getString(R.string.loading), 500).pause()
+                    .type(getResources().getString(R.string.loading), 500).pause()
+                    .delete(getResources().getString(R.string.loading), 300).pause()
+                    .type(getResources().getString(R.string.loading), 300).pause()
+                    .delete(getResources().getString(R.string.loading), 200).pause()
+                    .type(getResources().getString(R.string.loading), 200).pause()
+                    .delete(getResources().getString(R.string.loading), 200).pause()
+                    .type(getResources().getString(R.string.loading) + "\n", 200).pause()
 
                     .run(() -> {
 
@@ -359,19 +355,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             mChronometer.stop();
                             mAddBtn.setBackground(getDrawable(R.drawable.light_blue_back));
                             mAddBtn.setClickable(true);
-                            Log.d("valueOfClick10",String.valueOf(isClicked));
-                            isClicked=false;
+                            Log.d("valueOfClick10", String.valueOf(isClicked));
+                            isClicked = false;
                             mAddBtn.setText(R.string.reconnect);
-                            Log.d("valueOfClick10",String.valueOf(isClicked));
+                            Log.d("valueOfClick10", String.valueOf(isClicked));
                             mProgressBar.setVisibility(View.GONE);
                             mProgresstxt.setVisibility(View.GONE);
-                            progressStatus=0;
+                            progressStatus = 0;
 
                         }
                     });
 
         }
-
 
 
     }
@@ -765,7 +760,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //TODO ------------------------------------------------//
 
 
-    public void showDialog(){
+    public void showDialog() {
         AlertDialog.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
@@ -785,7 +780,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void clearAll(){
+    public void clearAll() {
         mTypewriterView1.setEnabled(false);
        /* mTypewriterView2.setEnabled(false);
         mTypewriterView3.setEnabled(false);
@@ -829,7 +824,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 handler.post(() -> {
                     mProgressBar.setProgress(progressStatus);
                     // Show the progress on TextView
-                    mProgresstxt.setText(progressStatus +Contract.PERCENT);
+                    mProgresstxt.setText(progressStatus + Contract.PERCENT);
                 });
             }
         }).start(); // Start the operation

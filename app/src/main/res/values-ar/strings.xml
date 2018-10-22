@@ -3,9 +3,9 @@
     <string name="welcome_txt">مرحبا بكم في مجموعات تيليجرام السريه</string>
     <string name="add_link">انطلق!</string>
     <string name="place_link">ضع الرابط هنا!</string>
-<!--
-    <string name="warning_url">من فضلك يرجى التأكد ان الرابط يبدأ ب</string>
--->
+    <!--
+        <string name="warning_url">من فضلك يرجى التأكد ان الرابط يبدأ ب</string>
+    -->
 
     <string name="dialog_title">غلق التطبيق</string>
     <string name="dialog_message">تحذير إذا تم إغلاق التطبيق ستحتاج الي اعادة محاولة الاتصال مره اخرى</string>
